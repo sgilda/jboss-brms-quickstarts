@@ -79,7 +79,7 @@ body {
 	                                               #{varRoom.name}
 	                                           </h:column>
 	                                           <h:column>
-	                                               <f:facet name="header">actions</f:facet>
+	                                               <f:facet name="header">Perform Actions</f:facet>
 	                                               <h:commandButton value="Initiate Fire" action="#{houseController.initiateFire(varRoom)}" />
 	                                               <h:commandButton value="Extinguish Fire" action="#{houseController.extinguishFire(varRoom)}" />
 	                                           </h:column>
@@ -89,15 +89,15 @@ body {
 
 									   <h:dataTable border="1" width="50%" value="#{house.sprinklers}" var="varSprinkler" rowClasses="sprinkler" >
 									       <h:column>
-									           <f:facet name="header">Sprinkle</f:facet>
+									           <f:facet name="header">Sprinkler</f:facet>
 									           Sprinkle Serial Num: #{varSprinkler.serialNumber}
 									       </h:column>
                                            <h:column>
-                                               <f:facet name="header">Sprinkle Room</f:facet>
+                                               <f:facet name="header">Sprinkler Room</f:facet>
                                                #{varSprinkler.room.name}
                                            </h:column>
 									       <h:column>
-									           <f:facet name="header">Sprinkle Status</f:facet>
+									           <f:facet name="header">Sprinkler Status</f:facet>
                                                <h:outputText value="#{varSprinkler.on ? 'ON' :'OFF'}" styleClass="#{varSprinkler.on ? 'sprinklerOn' : 'sprinklerOff'} "/>
 									       </h:column>
 									   </h:dataTable>

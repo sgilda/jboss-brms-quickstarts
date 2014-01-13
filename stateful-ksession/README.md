@@ -1,25 +1,25 @@
 stateful-ksession: Stateful Kie Session Quickstart
 ==================================================
-Author: Rafael Benevides
-Level: Intermediate
-Technologies: CDI, JSF, Drools
-Summary: This Quickstart shows how to use Stateful Kie Session
-Target Product: BRMS
-Product Versions: EAP 6.1, EAP 6.2
-Source: <https://github.com/jboss-developer/jboss-brms-quickstarts>
+Author: Rafael Benevides  
+Level: Intermediate  
+Technologies: CDI, JSF, Drools  
+Summary: This Quickstart shows how to use Stateful Kie Session  
+Target Product: BRMS  
+Product Versions: EAP 6.1, EAP 6.2  
+Source: <https://github.com/jboss-developer/jboss-brms-quickstarts>  
 
 What is it?
 -----------
 
 This projects demonstrates the use of Drools Stateful KIE session. Stateful KIE sessions are longer lived and allow iterative changes over time.
 
-In this use case we see a 'House' (with a fire alarm) and it contains 'Rooms' and fire 'Sprinkler''s for each room. 
+In this use case we see a 'House' with a fire alarm. The house contains 'Rooms' with fire 'Sprinklers' in each room. 
 
 This Quickstarts contains two modules:
 
-- The Kmodule project: Contains the model classes (House, Room, Alarm, Sprinkler and Fire) and the rule file (houserules.drl).
+- The Kmodule project contains the model classes (House, Room, Alarm, Sprinkler, and Fire) and the rules file (houserules.drl).
 
-- The Web project: Contains a web application that allows you to simulate the fire on each room.
+- The Web project contains a web application that allows you to simulate a fire in each room.
 
 System requirements
 -------------------
@@ -49,7 +49,7 @@ Start the JBoss Server
 Build and Deploy the Quickstart
 -------------------------
 
-_NOTE: The following build command assumes you have configured your Maven user settings. If you have not, you must include Maven setting arguments on the command line. See [Build and Deploy the Quickstarts](../README.md#build-and-deploy-the-quickstarts) for complete instructions and additional options._
+_NOTE: The following build command assumes you have configured your Maven user settings. If you have not, you must include Maven setting arguments on the command line._
 
 1. Make sure you have started the JBoss Server as described above.
 2. Open a command prompt and navigate to the root directory of this quickstart.
@@ -57,7 +57,7 @@ _NOTE: The following build command assumes you have configured your Maven user s
 
         mvn clean install jboss-as:deploy
 
-4. This will deploy `web/target/brms-stateful-ksession-web.war.war` to the running instance of the server. 
+4. This deploys `web/target/brms-stateful-ksession-web.war` to the running instance of the server. 
 
 
 Access the application 
@@ -66,15 +66,17 @@ Access the application
 
 Access the running application in a browser at the following URL:  <http://localhost:8080/brms-stateful-ksession-web/>
 
-You will be presented to a Dashboard that shows two tables:
+You are presented to a Dashboard that shows two tables:
 
-On the left Table there are house's rooms and you can simulate a fire on the each room.
+- The action table on the left lists the rooms in the house and provides buttons to initiate or extingush a fire in each room.
 
-Click on the 'Initiate Fire' button on any room and realize that all Sprinkler on that room (on the right table) will be turned on. You will also see a text 'FIRE ALARM RINGING'
+- The status table on the right lists the sprinklers in the rooms and the current status for each sprinkler. The green sprinkler status 'OFF' indicates there is no fire in the room. 
 
-If you 'Extinguish Fire' on that Room, the Sprinkler's for that room will be turned off.
+To simulate a fire in a room, click the `Initiate Fire` button. The text 'FIRE ALARM RINGING' appears below the action table to indicate a room is on fire. Also notice the status for that room's sprinklers turn red and change to 'ON' in the status table on the right.
 
-If there isn't any Fire on any Room, the 'FIRE ALARM RINGING' will also be disapear.
+To put out the fire, click the `Extinguish Fire` button for the room. The status for the sprinklers in that room are set to 'OFF' and the color changes to green.
+
+If there no fire in any room, the 'FIRE ALARM RINGING' text disappears.
 
 
 Undeploy the Archive
